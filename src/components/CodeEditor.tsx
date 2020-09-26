@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import AceEditor from "react-ace";
 
-import "ace-builds/src-noconflict/mode-java";
+import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/theme-github";
 import "../syntax.css";
 
@@ -13,12 +13,12 @@ const CodeEditor = () => {
     <AceEditor
       value={code}
       onChange={setCode}
-      mode="java"
+      mode="python"
       showGutter={false}
       height="100%"
       width="100%"
-      style={{borderRadius: "10px", fontFamily: "D2Coding, monospace"}}
-      fontSize={17}
+      style={{fontFamily: "D2Coding, monospace"}}
+      fontSize={18}
       theme="github"
     />
   );
