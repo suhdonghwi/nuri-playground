@@ -17,7 +17,7 @@ const CodeEditor = () => {
       onValueChange={setCode}
       highlight={(code) => highlight(code, languages.js)}
       style={{height: "100%"}}
-      padding={20}
+      padding={30}
     />
   );
 };
