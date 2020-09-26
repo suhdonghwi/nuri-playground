@@ -102,15 +102,20 @@ const Main = () => {
     const url = 'https://suth1jsg3l.execute-api.ap-northeast-2.amazonaws.com/production/run';
     console.log('run');
     setIsRunning(true);
-    const result = await axios.post(url, {code: code, input: input});
+    try {
+      const result = await axios.post(url, {code: code, input: input});
+      console.log(result);
 
-    if (result.data.error) {
-      setOutput("실행 제한 시간이 초과되었습니다.");
-    } else {
-      setOutput(result.data.output);
+      if (result.data.error) {
+        setOutput("실행 제한 시간이 초과되었습니다.");
+      } else {
+        setOutput(result.data.output);
+      }
+    } catch(err) {
+      setOutput("알 수 없는 에러가 발생했습니다.");
+    } finally {
+      setIsRunning(false);
     }
-
-    setIsRunning(false);
   };
 
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import { FaPlay } from "react-icons/fa";
+import { FaPlay, FaClock } from "react-icons/fa";
 
 const Bar = styled.nav`
   display: flex;
@@ -38,6 +38,11 @@ const Run = styled.button`
   outline: none;
 
   cursor: pointer;
+
+  &.running {
+    cursor: progress;
+    background-color: #adb5bd;
+  }
 `;
 
 const RunText = styled.span`
@@ -56,8 +61,8 @@ const NavBar = ({onRun, isRunning}: NavBarProps) => (
     <Title>
       <strong>누리</strong> 놀이터
     </Title>
-    <Run onClick={onRun}>
-      <FaPlay />
+    <Run onClick={onRun} disabled={isRunning} className={isRunning ? "running" : ""}>
+      {isRunning ? <FaClock /> : <FaPlay />}
       <RunText>{isRunning ? "실행 중" : "실행"}</RunText>
     </Run>
   </Bar>
