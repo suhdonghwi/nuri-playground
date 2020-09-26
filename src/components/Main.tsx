@@ -93,7 +93,7 @@ const ProgressIcon = styled.span`
 `;
 
 const Main = () => {
-  const [code, setCode] = useState("");
+  const [code, setCode] = useState("꾸러미 \"유용한 함수들.nuri\"\n\n");
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [isRunning, setIsRunning] = useState(false);
