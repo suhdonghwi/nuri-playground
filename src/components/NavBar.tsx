@@ -8,12 +8,20 @@ const Bar = styled.nav`
   align-items: center;
   padding: 1.25rem 3rem;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+
+  @media screen and (max-width: 530px) {
+    padding: 1.25rem 2rem;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 1.7rem;
   font-weight: normal;
   margin: 0 3rem 0 0;
+
+  @media screen and (max-width: 530px) {
+    margin-right: auto;
+  }
 `;
 
 const Run = styled.button`
