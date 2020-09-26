@@ -9,8 +9,9 @@ import "../syntax.css";
 interface CodeEditorProps {
   value: string;
   onChange?: (value: string) => void;
+  readOnly?: boolean;
 }
-const CodeEditor = ({value, onChange}: CodeEditorProps) => {
+const CodeEditor = ({value, onChange, readOnly}: CodeEditorProps) => {
   return (
     <AceEditor
       value={value}
@@ -19,6 +20,7 @@ const CodeEditor = ({value, onChange}: CodeEditorProps) => {
       showGutter={false}
       height="100%"
       width="100%"
+      readOnly={readOnly}
       style={{fontFamily: "D2Coding, monospace"}}
       fontSize={18}
       theme="github"

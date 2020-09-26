@@ -96,18 +96,26 @@ const Main = () => {
   const [code, setCode] = useState("");
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const [isRunning, setIsRunning] = useState(false);
 
   const onRun = async () => {
-    console.log(code);
-    console.log(input);
     const url = 'https://suth1jsg3l.execute-api.ap-northeast-2.amazonaws.com/production/run';
+    console.log('run');
+    setIsRunning(true);
     const result = await axios.post(url, {code: code, input: input});
-    setOutput(result.data.output);
+
+    if (result.data.error) {
+      setOutput("실행 제한 시간이 초과되었습니다.");
+    } else {
+      setOutput(result.data.output);
+    }
+
+    setIsRunning(false);
   };
 
   return (
     <Container>
-      <Bar onRun={onRun} />
+      <Bar onRun={onRun} isRunning={isRunning}/>
       <MainContainer>
         <SubContainer>
           <FloatingBox style={{ flex: 2, marginBottom: "3rem" }}>
@@ -125,7 +133,7 @@ const Main = () => {
         </ProgressIcon>
         <FloatingBox>
           <BoxTitle>출력</BoxTitle>
-          <CodeEditor value={output} />
+          <CodeEditor value={output} readOnly={true}/>
         </FloatingBox>
       </MainContainer>
     </Container>

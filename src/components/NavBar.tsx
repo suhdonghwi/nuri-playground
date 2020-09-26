@@ -48,16 +48,17 @@ const RunText = styled.span`
 
 interface NavBarProps {
   onRun: () => void;
+  isRunning: boolean;
 }
 
-const NavBar = ({onRun}: NavBarProps) => (
+const NavBar = ({onRun, isRunning}: NavBarProps) => (
   <Bar>
     <Title>
       <strong>누리</strong> 놀이터
     </Title>
-    <Run>
+    <Run onClick={onRun}>
       <FaPlay />
-      <RunText onClick={onRun}>실행</RunText>
+      <RunText>{isRunning ? "실행 중" : "실행"}</RunText>
     </Run>
   </Bar>
 );
