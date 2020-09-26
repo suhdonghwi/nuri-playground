@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import { FaPlay, FaClock } from "react-icons/fa";
+import { FaPlay, FaClock, FaGithub, FaScroll } from "react-icons/fa";
 
 const Bar = styled.nav`
   display: flex;
@@ -9,7 +9,7 @@ const Bar = styled.nav`
   padding: 1.25rem 3rem;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
 
-  @media screen and (max-width: 530px) {
+  @media screen and (max-width: 640px) {
     padding: 1.25rem 2rem;
   }
 `;
@@ -17,27 +17,45 @@ const Bar = styled.nav`
 const Title = styled.h1`
   font-size: 1.7rem;
   font-weight: normal;
-  margin: 0 3rem 0 0;
 
-  @media screen and (max-width: 530px) {
+  margin: 0 3rem 0 0;
+  @media screen and (max-width: 640px) {
     margin-right: auto;
   }
 `;
 
-const Run = styled.button`
+const Button = styled.button`
   display: flex;
   align-items: center;
 
   font-size: 1.2rem;
-  padding: 0.7rem 1rem;
+  text-decoration: none;
 
-  background-color: #40c057;
-  color: white;
+  padding: 0.6rem 1rem;
+
+  height: 100%;
+  box-sizing: border-box;
+
   border: none;
   border-radius: 7px;
-  outline: none;
 
+  outline: none;
   cursor: pointer;
+
+  margin-right: 1rem;
+
+  @media screen and (max-width: 640px) {
+    margin-right: 0;
+  }
+`;
+
+const ButtonText = styled.span`
+  margin-left: 0.6rem;
+`;
+
+const Run = styled(Button)`
+  background-color: #40c057;
+  color: white;
 
   &.running {
     cursor: progress;
@@ -45,9 +63,22 @@ const Run = styled.button`
   }
 `;
 
-const RunText = styled.span`
-  margin-left: 0.6rem;
-  margin-top: 2px;
+const Document = styled(Button)`
+  background-color: #228be6;
+  color: white;
+
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
+`;
+
+const GitHub = styled(Button)`
+  background-color: #212529;
+  color: white;
+
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
 `;
 
 
@@ -63,8 +94,18 @@ const NavBar = ({onRun, isRunning}: NavBarProps) => (
     </Title>
     <Run onClick={onRun} disabled={isRunning} className={isRunning ? "running" : ""}>
       {isRunning ? <FaClock /> : <FaPlay />}
-      <RunText>{isRunning ? "실행 중" : "실행"}</RunText>
+      <ButtonText style={{marginTop: 3}}>{isRunning ? "실행 중" : "실행"}</ButtonText>
     </Run>
+
+    <Document as="a" href="https://github.com/suhdonghwi/nuri/blob/master/docs/README.md">
+      <FaScroll />
+      <ButtonText>문서</ButtonText>
+    </Document>
+
+    <GitHub as="a" href="https://github.com/suhdonghwi/nuri/">
+      <FaGithub />
+      <ButtonText>깃허브</ButtonText>
+    </GitHub>
   </Bar>
 );
 
