@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components/macro";
+import axios from "axios";
 
 import Bar from "./NavBar";
 import CodeEditor from "./CodeEditor";
@@ -91,30 +92,44 @@ const ProgressIcon = styled.span`
   }
 `;
 
-const Main = () => (
-  <Container>
-    <Bar />
-    <MainContainer>
-      <SubContainer>
-        <FloatingBox style={{flex: 2, marginBottom: "3rem"}}>
-          <BoxTitle>코드</BoxTitle>
-          <CodeEditor />
-        </FloatingBox>
+const Main = () => {
+  const [code, setCode] = useState("");
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState("");
 
-        <FloatingBox style={{flex: 1}}>
-          <BoxTitle>입력</BoxTitle>
-          <CodeEditor />
+  const onRun = async () => {
+    console.log(code);
+    console.log(input);
+    const url = 'https://suth1jsg3l.execute-api.ap-northeast-2.amazonaws.com/production/run';
+    const result = await axios.post(url, {code: code, input: input});
+    setOutput(result.data.output);
+  };
+
+  return (
+    <Container>
+      <Bar onRun={onRun} />
+      <MainContainer>
+        <SubContainer>
+          <FloatingBox style={{ flex: 2, marginBottom: "3rem" }}>
+            <BoxTitle>코드</BoxTitle>
+            <CodeEditor value={code} onChange={setCode} />
+          </FloatingBox>
+
+          <FloatingBox style={{ flex: 1 }}>
+            <BoxTitle>입력</BoxTitle>
+            <CodeEditor value={input} onChange={setInput} />
+          </FloatingBox>
+        </SubContainer>
+        <ProgressIcon>
+          <FaAngleDoubleRight />
+        </ProgressIcon>
+        <FloatingBox>
+          <BoxTitle>출력</BoxTitle>
+          <CodeEditor value={output} />
         </FloatingBox>
-      </SubContainer>
-      <ProgressIcon>
-        <FaAngleDoubleRight />
-      </ProgressIcon>
-      <FloatingBox>
-        <BoxTitle>출력</BoxTitle>
-        <CodeEditor />
-      </FloatingBox>
-    </MainContainer>
-  </Container>
-);
+      </MainContainer>
+    </Container>
+  );
+};
 
 export default Main;

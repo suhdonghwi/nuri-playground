@@ -45,14 +45,19 @@ const RunText = styled.span`
   margin-top: 2px;
 `;
 
-const NavBar = () => (
+
+interface NavBarProps {
+  onRun: () => void;
+}
+
+const NavBar = ({onRun}: NavBarProps) => (
   <Bar>
     <Title>
       <strong>누리</strong> 놀이터
     </Title>
     <Run>
       <FaPlay />
-      <RunText>실행</RunText>
+      <RunText onClick={onRun}>실행</RunText>
     </Run>
   </Bar>
 );

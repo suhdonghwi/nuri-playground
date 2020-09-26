@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import AceEditor from "react-ace";
 
@@ -6,13 +6,15 @@ import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/theme-github";
 import "../syntax.css";
 
-const CodeEditor = () => {
-  const [code, setCode] = useState("");
-
+interface CodeEditorProps {
+  value: string;
+  onChange?: (value: string) => void;
+}
+const CodeEditor = ({value, onChange}: CodeEditorProps) => {
   return (
     <AceEditor
-      value={code}
-      onChange={setCode}
+      value={value}
+      onChange={onChange}
       mode="python"
       showGutter={false}
       height="100%"
