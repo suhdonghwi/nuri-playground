@@ -14,11 +14,6 @@ const CodeEditor = () => {
       value={code}
       onChange={setCode}
       mode="java"
-      showGutter={false}
-      height="100%"
-      width="100%"
-      style={{borderRadius: "10px", fontFamily: "D2Coding, monospace"}}
-      fontSize={17}
       theme="github"
     />
   );

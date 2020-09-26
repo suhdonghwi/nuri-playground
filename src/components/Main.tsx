@@ -17,21 +17,24 @@ const MainContainer = styled.main`
   display: flex;
   align-items: center;
 
-  padding: 4rem;
+  padding: 4rem 4rem;
+  max-height: 100%;
 `;
 
 const FloatingBox = styled.section`
+  padding: 1.5rem;
   flex: 1;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   border-radius: 10px;
   height: 100%;
-
-  margin: 0 3rem;
 `;
 
 const ProgressIcon = styled.span`
   font-size: 3rem;
   color: #343a40;
+  text-align: center;
+
+  margin: 0 3rem;
 `;
 
 const Main = () => (
