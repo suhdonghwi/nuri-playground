@@ -10,6 +10,10 @@ const Container = styled.div`
   flex-direction: column;
 
   height: 100%;
+
+  @media screen and (max-width: 760px) {
+    height: auto;
+  }
 `;
 
 const MainContainer = styled.main`
@@ -19,6 +23,16 @@ const MainContainer = styled.main`
 
   padding: 4rem 5rem;
   max-height: 100%;
+
+  @media screen and (max-width: 760px) {
+    flex-direction: column;
+    height: 100%;
+    max-height: auto;
+  }
+
+  @media screen and (max-width: 530px) {
+    padding: 2rem 2rem;
+  }
 `;
 
 const SubContainer = styled.div`
@@ -26,6 +40,17 @@ const SubContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
+
+  @media screen and (max-width: 1200px) {
+    margin-right: 3rem;
+  }
+
+  @media screen and (max-width: 760px) {
+    margin-right: 0;
+    height: 1000px;
+    margin-bottom: 3rem;
+  }
 `;
 
 const FloatingBox = styled.section`
@@ -38,8 +63,13 @@ const FloatingBox = styled.section`
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border-radius: 10px;
   height: 100%;
+  width: 100%;
 
   box-sizing: border-box;
+
+  @media screen and (max-width: 760px) {
+    height: 500px;
+  }
 `;
 
 const BoxTitle = styled.h2`
@@ -54,7 +84,11 @@ const ProgressIcon = styled.span`
   color: #343a40;
   text-align: center;
 
-  margin: 0 4rem;
+  margin: 0 5rem;
+
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
 `;
 
 const Main = () => (
