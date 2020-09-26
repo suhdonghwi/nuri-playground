@@ -1,10 +1,11 @@
 import React from "react";
-import Bar from "./components/NavBar";
+
+import Main from "./components/Main";
 
 function App() {
   return (
     <div className="App">
-      <Bar />
+      <Main />
     </div>
   );
 }

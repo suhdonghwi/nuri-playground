@@ -13,7 +13,7 @@ const Bar = styled.nav`
 const Title = styled.h1`
   font-size: 1.7rem;
   font-weight: normal;
-  margin: 0 2rem 0 0;
+  margin: 0 3rem 0 0;
 `;
 
 const Run = styled.button`

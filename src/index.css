@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
 
+html, body, #root, #root>div {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Noto Sans KR', sans-serif;
