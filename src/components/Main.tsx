@@ -112,6 +112,10 @@ const ProgressIcon = styled.span`
 
   margin: 0 5rem;
 
+  @media screen and (max-width: 1500px) {
+    margin: 0 3rem;
+  }
+
   @media screen and (max-width: 1200px) {
     display: none;
   }
@@ -151,7 +155,7 @@ const Main = () => {
       <Bar onRun={onRun} isRunning={isRunning} />
       <MainContainer>
         <SubContainer>
-          <FloatingBox style={{ flex: 2, marginBottom: "3rem" }}>
+          <FloatingBox style={{ flex: 3, marginBottom: "3rem" }}>
             <BoxTitle>
               코드
               <SelectContainer>
@@ -161,7 +165,7 @@ const Main = () => {
             <CodeEditor value={code} onChange={setCode} />
           </FloatingBox>
 
-          <FloatingBox style={{ flex: 1 }}>
+          <FloatingBox style={{ flex: 1, minHeight: 150 }}>
             <BoxTitle>입력</BoxTitle>
             <CodeEditor value={input} onChange={setInput} />
           </FloatingBox>
