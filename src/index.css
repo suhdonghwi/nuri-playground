@@ -15,3 +15,6 @@ textarea {
   outline: none;
 }
 
+#ace-editor {
+  z-index: -10;
+}

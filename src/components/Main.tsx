@@ -92,6 +92,7 @@ const SelectContainer = styled.div`
   font-size: 1rem;
   font-weight: normal;
   margin-left: auto;
+  z-index: 10;
 
   width: 50%;
 
