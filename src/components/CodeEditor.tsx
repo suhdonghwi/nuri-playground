@@ -10,18 +10,20 @@ interface CodeEditorProps {
   value: string;
   onChange?: (value: string) => void;
   readOnly?: boolean;
+  lineNumber: boolean;
 }
-const CodeEditor = ({value, onChange, readOnly}: CodeEditorProps) => {
+const CodeEditor = ({value, onChange, readOnly, lineNumber}: CodeEditorProps) => {
   return (
     <AceEditor
       value={value}
       onChange={onChange}
       mode="python"
-      showGutter={false}
+      showGutter={lineNumber}
       height="100%"
       width="100%"
       readOnly={readOnly}
       style={{fontFamily: "D2Coding, monospace"}}
+      tabSize={2}
       fontSize={18}
       theme="github"
     />

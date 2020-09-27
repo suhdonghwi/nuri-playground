@@ -162,12 +162,12 @@ const Main = () => {
                 <Select options={options} placeholder="예시 선택" onChange={onSelect}/>
               </SelectContainer>
             </BoxTitle>
-            <CodeEditor value={code} onChange={setCode} />
+            <CodeEditor value={code} onChange={setCode} lineNumber/>
           </FloatingBox>
 
           <FloatingBox style={{ flex: 1, minHeight: 150 }}>
             <BoxTitle>입력</BoxTitle>
-            <CodeEditor value={input} onChange={setInput} />
+            <CodeEditor value={input} onChange={setInput} lineNumber/>
           </FloatingBox>
         </SubContainer>
         <ProgressIcon>
@@ -175,7 +175,7 @@ const Main = () => {
         </ProgressIcon>
         <FloatingBox>
           <BoxTitle>출력</BoxTitle>
-          <CodeEditor value={output} readOnly={true} />
+          <CodeEditor value={output} readOnly lineNumber={false}/>
         </FloatingBox>
       </MainContainer>
     </Container>
